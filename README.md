@@ -16,10 +16,10 @@ Il progetto sfrutta la potenza di **`pathlib`** per una gestione multipiattaform
 * **Clean-up Ricorsivo:** Pulizia automatica delle directory rasteggiate che rimangono vuote a seguito dello spostamento dei file, ignorando in sicurezza symlink e gestendo i permessi di sistema.
 * **Architettura Modulare:** Codice strutturato in package con separazione netta delle responsabilità per ciascun modulo.
 * **Interfaccia CLI Completa:** Controllo totale dell'esecuzione tramite argomenti da riga di comando gestiti via `argparse`.
-  * --cwd        str    Percorso della directory da organizzare (default: cartella corrente)
-  * --subfolders	flag   Se presente, scansiona ricorsivamente anche le sottocartelle
-  * --sort       choice Modalità di ordinamento dei file (Default, Name, NameNoCase, Extension, Size)
-  * --cleanup    flag   Rimuove automaticamente le cartelle rimaste vuote al termine dell'operazione
+  * **--cwd**        (`str`)    Percorso della directory da organizzare (default: cartella corrente)
+  * **--subfolders**	(`flag`)   Se presente, scansiona ricorsivamente anche le sottocartelle
+  * **--sort**       (`choice`) Modalità di ordinamento dei file (Default, Name, NameNoCase, Extension, Size)
+  * **--cleanup**    (`flag`)   Rimuove automaticamente le cartelle rimaste vuote al termine dell'operazione
  
 
 ---
