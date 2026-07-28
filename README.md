@@ -2,6 +2,15 @@
 
 Un'utilità da riga di comando (CLI) sviluppata in **Python 3.10+** per l'organizzazione, la catalogazione e il riordino automatico dei file all'interno del file system.
 Il progetto sfrutta la potenza di **`pathlib`** per una gestione multipiattaforma dei percorsi, implementa una mappatura estensibile per categoria/sottocategoria, un algoritmo di ordinamento custom con **Type Hinting** e un modulo di pulizia sicura delle directory vuote.
+L'aggiunzione di ulteriori estensioni richiede la semplice aggiunta del relativo suffisso nel mapping già predisposto su `organizer.py` o la variazione del mapping con l'aggiunta del tipo di file (Es. Database), il suo uso comune (Es. Libreria) ed il suffisso (Es. bkshp):
+```python
+extension = {
+    ...
+    "Database": {
+        "Libreria": {"bkshp"}
+    }
+}
+```
 
 ---
 
@@ -16,11 +25,13 @@ Il progetto sfrutta la potenza di **`pathlib`** per una gestione multipiattaform
 * **Clean-up Ricorsivo:** Pulizia automatica delle directory rasteggiate che rimangono vuote a seguito dello spostamento dei file, ignorando in sicurezza symlink e gestendo i permessi di sistema.
 * **Architettura Modulare:** Codice strutturato in package con separazione netta delle responsabilità per ciascun modulo.
 * **Interfaccia CLI Completa:** Controllo totale dell'esecuzione tramite argomenti da riga di comando gestiti via `argparse`.
-  * **--cwd**        (`str`)    Percorso della directory da organizzare (default: cartella corrente)
-  * **--subfolders**	(`flag`)   Se presente, scansiona ricorsivamente anche le sottocartelle
-  * **--sort**       (`choice`) Modalità di ordinamento dei file (Default, Name, NameNoCase, Extension, Size)
-  * **--cleanup**    (`flag`)   Rimuove automaticamente le cartelle rimaste vuote al termine dell'operazione
- 
+
+| **Argomento** | `tipo` | Descrizione |
+|:---:|:---|:---|
+| **--cwd** | `str` | Percorso della directory da organizzare (default: cartella corrente) |
+| **--subfolders**	| `flag` | Se presente, scansiona ricorsivamente anche le sottocartelle |
+| **--sort** | `choice` | Modalità di ordinamento dei file (Default, Name, NameNoCase, Extension, Size) |
+| **--cleanup** | `flag` | Rimuove automaticamente le cartelle rimaste vuote al termine dell'operazione |
 
 ---
 
