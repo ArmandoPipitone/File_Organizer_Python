@@ -78,3 +78,26 @@ file-organizer/
     ├── organizer.py       # Logica core di smistamento ed estensioni
     └── cleanup.py         # Utility per la rimozione delle cartelle vuote
 ```
+
+## 🚀 Come Compilare ed Eseguire
+
+```bash
+python [YourPath]/main.py --cwd [FolderPath] --subfolders --sort "Default" --cleanup
+```
+
+---
+## ✂️ Screenshot
+
+### Cartella di test iniziale
+![alt text](image-5.png)
+
+### Cartella di test post esecuzione
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+---
