@@ -1,7 +1,9 @@
 # 📁 Smart File Organizer & Sorter (Python CLI)
 
-Un'utilità da riga di comando (CLI) sviluppata in **Python 3.10+** per l'organizzazione, la catalogazione e il riordino automatico dei file all'interno del file system.
+Un'utilità da riga di comando (CLI) sviluppata in **Python 3.10+** per organizzare, catalogare e riordinare automaticamente dei file all'interno del file system.
+
 Il progetto sfrutta la potenza di **`pathlib`** per una gestione multipiattaforma dei percorsi, implementa una mappatura estensibile per categoria/sottocategoria, un algoritmo di ordinamento custom con **Type Hinting** e un modulo di pulizia sicura delle directory vuote.
+
 L'aggiunzione di ulteriori estensioni richiede la semplice aggiunta del relativo suffisso nel mapping già predisposto su `organizer.py` o la variazione del mapping con l'aggiunta del tipo di file (Es. Database), il suo uso comune (Es. Libreria) ed il suffisso (Es. bkshp):
 ```python
 extension = {
@@ -14,15 +16,16 @@ extension = {
 
 ---
 
-## ✨ Caratteristiche Principali
+## ✨ Caratteristiche
 
-* **Organizzazione Multilivello basata su Estensioni:** Catalogazione automatica dei file in gerarchie di cartelle configurabili in livelli di profondità (es. `Categoria / Sottocategoria / Estensione`).
-* **Gestione Conflitti Nomi (No Overwrite):** Rilevamento dei duplicati nella destinazione con rinomina automatica progressiva (es. `documento_1.pdf`) per prevenire perdite accidentali di dati.
+* **Organizzazione Multilivello basata su Estensioni:** Catalogazione automatica dei file in gerarchie di cartelle tramite riconoscimento intelligente delle estensioni dei file rispetto a macro-categorie (Documenti, Musica, Immagini, Video, Archivi) e sotto-categorie specifiche.
+* **Gestione Conflitti Nomi (No Overwrite):** Sistema di auto-rinominazione progressiva dei file in caso di collisione (nome_1.ext, nome_2.ext) per impedire sovrascritture o perdite accidentalmente causate dallo spostamento.
 * **Algoritmo di Ordinamento Flessibile (Custom & Native):**
   * **Insertion Sort Personalizzato (`mySorting`):** Implementazione didattica ricca di *Type Hinting* (`Iterable`, `Callable`, `TypeVar`) e funzioni *Lambda* per ordinare file secondo metadati come dimensione, data di creazione/modifica o estensione.
   * **Fallback Nativo Ad Alte Prestazioni:** Utilizzo trasparente della funzione built-in `sorted()` di Python per la massima velocità su ampi volumi di dati.
-* **Scansione Ricorsiva:** Supporto completo per la ricerca e il riordino di file presenti all'interno di sottocartelle annidate.
-* **Clean-up Ricorsivo:** Pulizia automatica delle directory rasteggiate che rimangono vuote a seguito dello spostamento dei file, ignorando in sicurezza symlink e gestendo i permessi di sistema.
+* **Scansione Ricorsiva:** Opzione per includere ed elaborare anche il contenuto delle sottocartelle (--subfolders).
+* **Clean-up Ricorsivo:** Rimozione ricorsiva delle directory rimaste vuote a seguito del riordinamento (--cleanup). 
+* **Sicurezza:** Ignora automaticamente i collegamenti simbolici (symlink) evitando di spezzarli o di finire in cicli infiniti durante la scansione.
 * **Architettura Modulare:** Codice strutturato in package con separazione netta delle responsabilità per ciascun modulo.
 * **Interfaccia CLI Completa:** Controllo totale dell'esecuzione tramite argomenti da riga di comando gestiti via `argparse`.
 
